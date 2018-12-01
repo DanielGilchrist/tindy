@@ -17,6 +17,7 @@ GEM
     multi_xml (0.6.0)
     public_suffix (3.0.3)
     rake (12.3.1)
+    retries (0.0.5)
     safe_yaml (1.0.4)
     turn (0.9.7)
       ansi
@@ -33,6 +34,7 @@ PLATFORMS
 DEPENDENCIES
   httparty
   rake
+  retries
   turn
   vcr
   webmock
