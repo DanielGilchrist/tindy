@@ -53,12 +53,12 @@ Report a user
 tindy.report_user(12345, :spam)
 
 # report a user for being offensive/inappropriate
-tindy.report_user(12345, :offensive
+tindy.report_user(12345, :offensive)
 tindy.report_user(12345, :inappropriate)
 ```
 
 ### Send Message
-(I haven't tested if this works)
+(I haven't tested if this works)  
 Send a message to one of your matches
 ```
 tindy.send_message(12345, "Hey how are you?")
