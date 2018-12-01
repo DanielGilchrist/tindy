@@ -28,7 +28,7 @@ tindy = Tindy::Client.new("YOUR_FACEBOOK_ACCESS_TOKEN")
 Returns a list of recommended Tinder users
 
 ```
-tindy.recommentations
+tindy.recommendations
 ```
 
 ### Like/Pass
