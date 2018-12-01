@@ -10,3 +10,6 @@ Metrics/MethodLength:
 
 Style/Documentation:
   Enabled: false
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: false
