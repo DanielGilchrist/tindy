@@ -79,7 +79,7 @@ module Tindy
         facebook_id: TINDER_APP_ID
       }.to_json
 
-      res = post('/auth', auth_obj)
+      res = self.class.post(BASE_ENDPOINT + '/auth', headers: headers, body: auth_obj)
 
       raise "Failed to authenticate. Response body: #{res.body}" if res.code != 200
 
