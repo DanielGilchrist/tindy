@@ -3,7 +3,7 @@ AllCops:
     - 'bin/*'
 
 Metrics/LineLength:
-  Max: 120
+  Max: 140
 
 Metrics/MethodLength:
   Max: 30
@@ -12,4 +12,7 @@ Style/Documentation:
   Enabled: false
 
 Layout/EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+Style/SymbolArray:
   Enabled: false
