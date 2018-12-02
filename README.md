@@ -73,7 +73,7 @@ tindy.update_location(-27.469770, 153.025131)
 ### Update Profile
 Update your profile either individually or multiple at once
 ```
-# update multiple (gender: <0|1>, age_filter_min: <number>, age_filter_max: <number>, update_distance: <number>
+# update multiple (gender: <0|1>, age_filter_min: <number>, age_filter_max: <number>, distance_filter: <number>
 tindy.update_profile(age_filter_min: 20, age_filter_max: 26)
 
 # update gender
