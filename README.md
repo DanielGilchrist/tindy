@@ -5,20 +5,20 @@ A shitty ruby client for Tinder (using [this doc](https://gist.github.com/rtt/10
 
 Bundler
 
-```
+```ruby
 gem 'tindy'
 ```
 
 Other
 
-```
+```ruby
 [sudo|rvm] gem install tindy
 ``` 
 
 ## Getting Started
 Require tindy and initialize the client with your Facebook access token ([instructions](https://gist.github.com/taseppa/66fc7239c66ef285ecb28b400b556938))
 
-```
+```ruby
 require 'tindy'
 
 tindy = Tindy::Client.new("YOUR_FACEBOOK_ACCESS_TOKEN")
@@ -27,13 +27,13 @@ tindy = Tindy::Client.new("YOUR_FACEBOOK_ACCESS_TOKEN")
 ### Recommendations
 Returns a list of recommended Tinder users
 
-```
+```ruby
 tindy.recommendations
 ```
 
 ### Like/Pass
 Like or pass a user
-```
+```ruby
 # like user
 tindy.like(12345)
 
@@ -43,12 +43,12 @@ tindy.pass(12345)
 
 ### Updates
 Get recent updates
-```
+```ruby
 tindy.updates
 ```
 ### Report Users
 Report a user
-```
+```ruby
 # report a user for spam
 tindy.report_user(12345, :spam)
 
@@ -60,19 +60,19 @@ tindy.report_user(12345, :inappropriate)
 ### Send Message
 (I haven't tested if this works)  
 Send a message to one of your matches
-```
+```ruby
 tindy.send_message(12345, "Hey how are you?")
 ```
 
 ### Update Location
 Update your location
-```
+```ruby
 tindy.update_location(-27.469770, 153.025131)
 ```
 
 ### Update Profile
 Update your profile either individually or multiple at once
-```
+```ruby
 # update multiple (gender: <0|1>, age_filter_min: <number>, age_filter_max: <number>, distance_filter: <number>
 tindy.update_profile(age_filter_min: 20, age_filter_max: 26)
 
@@ -102,4 +102,4 @@ Just schmang up a PR and I'll check it out
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-Couldn't have been build without [this doc](https://gist.github.com/rtt/10403467) and the people commenting on it <3
+Couldn't have been built without [this doc](https://gist.github.com/rtt/10403467) and the people commenting on it <3
