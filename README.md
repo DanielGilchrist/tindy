@@ -80,7 +80,7 @@ tindy.update_profile(age_filter_min: 20, age_filter_max: 26)
 tindy.update_gender(:male)
 tindy.update_gender(:female)
 
-# update minumum age
+# update minimum age
 tindy.update_min_age(20)
 
 # update maximum age
