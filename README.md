@@ -61,7 +61,7 @@ tindy.like("53467235483cb56c475cc1d6")
 tindy.pass("53467235483cb56c475cc1d6")
 ```
 ##### Example Response
-```json
+```ruby
 {
   "match": true
 }
@@ -73,7 +73,7 @@ Send a message to one of your matches (_id)
 tindy.send_message("53467235483cb56c475cc1d6", "Hey how are you?")
 ```
 ##### Example Response
-```json
+```ruby
 {
   "_id": "53467235483cb56c475cc1d6",
   "from": "53430689ab3c04c13e006ffb",
@@ -102,7 +102,7 @@ Get recent updates
 tindy.updates
 ```
 ##### Example Response
-```json
+```ruby
 {
   "matches": [
     {
@@ -135,7 +135,7 @@ Returns a list of recommended Tinder users
 tindy.recommendations
 ```
 ##### Example Response
-```json
+```ruby
 {
   "status": 200,
   "results": [
