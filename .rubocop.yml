@@ -16,3 +16,12 @@ Layout/EmptyLinesAroundAccessModifier:
 
 Style/SymbolArray:
   Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Lint/NonDeterministicRequireOrder:
+  Enabled: false

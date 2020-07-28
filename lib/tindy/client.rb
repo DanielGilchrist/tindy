@@ -115,7 +115,7 @@ module Tindy
       {
         "content-type" => "application/json",
         "User-agent" => "Tinder/4.0.9 (iPhone; iOS 8.1.1; Scale/2.00)",
-        "platform" => "ios",
+        "platform" => "ios"
       }.tap { |h| h["X-Auth-Token"] = @tinder_token if authenticated? }
     end
   end
