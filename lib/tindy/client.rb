@@ -24,7 +24,7 @@ module Tindy
       post("/like/#{id}")
     end
 
-    def pass
+    def pass(id)
       post("/pass/#{id}")
     end
 
