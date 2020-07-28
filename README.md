@@ -63,7 +63,7 @@ tindy.pass("53467235483cb56c475cc1d6")
 ##### Example Response
 ```ruby
 {
-  "match": true
+  "match" => true
 }
 ```
 
@@ -75,13 +75,13 @@ tindy.send_message("53467235483cb56c475cc1d6", "Hey how are you?")
 ##### Example Response
 ```ruby
 {
-  "_id": "53467235483cb56c475cc1d6",
-  "from": "53430689ab3c04c13e006ffb",
-  "to": "533a59ea52046fc077002815",
-  "match_id": "53464b0728ac73976d0a3fbf",
-  "sent_date": "2014-04-10T10:28:05.764Z",
-  "message": "hi!",
-  "created_date": "2014-04-10T10:28:05.764Z"
+  "_id" => "53467235483cb56c475cc1d6",
+  "from" => "53430689ab3c04c13e006ffb",
+  "to" => "533a59ea52046fc077002815",
+  "match_id" => "53464b0728ac73976d0a3fbf",
+  "sent_date" => "2014-04-10T10:28:05.764Z",
+  "message" => "hi!",
+  "created_date" => "2014-04-10T10:28:05.764Z"
 }
 ```
 
@@ -104,28 +104,24 @@ tindy.updates
 ##### Example Response
 ```ruby
 {
-  "matches": [
-    {
-      "_id": "53464b0728ac73976d0a3fbf",
-      "messages": [
-        {
-          "_id": "534651198ce6da797248c1a3",
-          "match_id": "53464b0728ac73976d0a3fbf",
-          "to": "53430689ab3c04c13e006ffb",
-          "from": "533a59ea52046fc077002815",
-          "message": "hi  .... how is it going?",
-          "sent_date": "2014-04-10T08:06:49.800Z",
-          "created_date": "2014-04-10T08:06:49.800Z",
-          "timestamp": 1397117209800
-        }
-      ],
-      "last_activity_date": "2014-04-10T10:17:54.379Z"
-    }
-  ],
-  "blocks": [],
-  "lists": [],
-  "deleted_lists": [],
-  "last_activity_date": "2014-04-10T10:17:54.379Z"
+  "matches" => [{
+    "_id" => "53464b0728ac73976d0a3fbf",
+    "messages" => [{
+      "_id" => "534651198ce6da797248c1a3",
+      "match_id" => "53464b0728ac73976d0a3fbf",
+      "to" => "53430689ab3c04c13e006ffb",
+      "from" => "533a59ea52046fc077002815",
+      "message" => "hi  .... how is it going?",
+      "sent_date" => "2014-04-10T08:06:49.800Z",
+      "created_date" => "2014-04-10T08:06:49.800Z",
+      "timestamp" => 1397117209800
+    }],
+    "last_activity_date" => "2014-04-10T10:17:54.379Z"
+  }],
+  "blocks" => [],
+  "lists" => [],
+  "deleted_lists" => [],
+  "last_activity_date" => "2014-04-10T10:17:54.379Z"
 }
 ```
 
@@ -137,154 +133,147 @@ tindy.recommendations
 ##### Example Response
 ```ruby
 {
-  "status": 200,
-  "results": [
-    {
-      "distance_mi": 2,
-      "common_like_count": 0,
-      "common_friend_count": 0,
-      "common_likes": [],
-      "common_friends": [],
-      "_id": "518d666a2a00df0e490000b9",
-      "bio": "",
-      "birth_date": "1986-05-17T00:00:00.000Z",
-      "gender": 1,
-      "name": "Elen",
-      "ping_time": "2014-04-08T11:59:18.494Z",
-      "photos": [
-        {
-          "id": "fea4f480-7ce0-4143-a310-a03c2b2cdbc6",
-          "main": true,
-          "crop": "source",
-          "fileName": "fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg",
-          "extension": "jpg",
-          "processedFiles": [
-            {
-              "width": 640,
-              "height": 640,
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/640x640_fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
-            },
-            {
-              "width": 320,
-              "height": 320,
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/320x320_fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
-            },
-            {
-              "width": 172,
-              "height": 172,
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/172x172_fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
-            },
-            {
-              "width": 84,
-              "height": 84,
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/84x84_fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
-            }
-          ],
-          "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
-        },
-        {
-          "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
-          "processedFiles": [
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/640x640_pct_0_29.5312464_540_540_5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
-              "height": 640,
-              "width": 640
-            },
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/320x320_pct_0_29.5312464_540_540_5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
-              "height": 320,
-              "width": 320
-            },
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/172x172_pct_0_29.5312464_540_540_5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
-              "height": 172,
-              "width": 172
-            },
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/84x84_pct_0_29.5312464_540_540_5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
-              "height": 84,
-              "width": 84
-            }
-          ],
-          "extension": "jpg",
-          "fileName": "5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
-          "main": false,
-          "ydistance_percent": 0.75,
-          "yoffset_percent": 0.04101562,
-          "xoffset_percent": 0,
-          "id": "5c1d3231-5a75-4a07-91ff-5c012716583f",
-          "xdistance_percent": 1
-        },
-        {
-          "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/5abd87e5-a181-4946-a8b9-880926a78943.jpg",
-          "processedFiles": [
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/640x640_pct_0_118.125_540_540_5abd87e5-a181-4946-a8b9-880926a78943.jpg",
-              "height": 640,
-              "width": 640
-            },
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/320x320_pct_0_118.125_540_540_5abd87e5-a181-4946-a8b9-880926a78943.jpg",
-              "height": 320,
-              "width": 320
-            },
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/172x172_pct_0_118.125_540_540_5abd87e5-a181-4946-a8b9-880926a78943.jpg",
-              "height": 172,
-              "width": 172
-            },
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/84x84_pct_0_118.125_540_540_5abd87e5-a181-4946-a8b9-880926a78943.jpg",
-              "height": 84,
-              "width": 84
-            }
-          ],
-          "extension": "jpg",
-          "fileName": "5abd87e5-a181-4946-a8b9-880926a78943.jpg",
-          "main": false,
-          "ydistance_percent": 0.75,
-          "yoffset_percent": 0.1640625,
-          "xoffset_percent": 0,
-          "id": "5abd87e5-a181-4946-a8b9-880926a78943",
-          "xdistance_percent": 1
-        },
-        {
-          "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
-          "processedFiles": [
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/640x640_pct_157.570344_0_405_405_5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
-              "height": 640,
-              "width": 640
-            },
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/320x320_pct_157.570344_0_405_405_5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
-              "height": 320,
-              "width": 320
-            },
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/172x172_pct_157.570344_0_405_405_5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
-              "height": 172,
-              "width": 172
-            },
-            {
-              "url": "http://images.gotinder.com/518d666a2a00df0e490000b9/84x84_pct_157.570344_0_405_405_5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
-              "height": 84,
-              "width": 84
-            }
-          ],
-          "extension": "jpg",
-          "fileName": "5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
-          "main": false,
-          "ydistance_percent": 1,
-          "yoffset_percent": 0,
-          "xoffset_percent": 0.2188477,
-          "id": "5e168698-a034-40c0-b7fb-7c05743f2310",
-          "xdistance_percent": 0.5625
-        }
-      ],
-      "birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
-    }
-  ]
+  "status" => 200,
+  "results" => [{
+    "distance_mi" => 2,
+    "common_like_count" => 0,
+    "common_friend_count" => 0,
+    "common_likes" => [],
+    "common_friends" => [],
+    "_id" => "518d666a2a00df0e490000b9",
+    "bio" => "",
+    "birth_date" => "1986-05-17T00:00:00.000Z",
+    "gender" => 1,
+    "name" => "Elen",
+    "ping_time" => "2014-04-08T11:59:18.494Z",
+    "photos" => [{
+        "id" => "fea4f480-7ce0-4143-a310-a03c2b2cdbc6",
+        "main" => true,
+        "crop" => "source",
+        "fileName" => "fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg",
+        "extension" => "jpg",
+        "processedFiles" => [{
+            "width" => 640,
+            "height" => 640,
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/640x640_fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
+          },
+          {
+            "width" => 320,
+            "height" => 320,
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/320x320_fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
+          },
+          {
+            "width" => 172,
+            "height" => 172,
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/172x172_fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
+          },
+          {
+            "width" => 84,
+            "height" => 84,
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/84x84_fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
+          }
+        ],
+        "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg"
+      },
+      {
+        "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
+        "processedFiles" => [{
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/640x640_pct_0_29.5312464_540_540_5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
+            "height" => 640,
+            "width" => 640
+          },
+          {
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/320x320_pct_0_29.5312464_540_540_5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
+            "height" => 320,
+            "width" => 320
+          },
+          {
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/172x172_pct_0_29.5312464_540_540_5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
+            "height" => 172,
+            "width" => 172
+          },
+          {
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/84x84_pct_0_29.5312464_540_540_5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
+            "height" => 84,
+            "width" => 84
+          }
+        ],
+        "extension" => "jpg",
+        "fileName" => "5c1d3231-5a75-4a07-91ff-5c012716583f.jpg",
+        "main" => false,
+        "ydistance_percent" => 0.75,
+        "yoffset_percent" => 0.04101562,
+        "xoffset_percent" => 0,
+        "id" => "5c1d3231-5a75-4a07-91ff-5c012716583f",
+        "xdistance_percent" => 1
+      },
+      {
+        "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/5abd87e5-a181-4946-a8b9-880926a78943.jpg",
+        "processedFiles" => [{
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/640x640_pct_0_118.125_540_540_5abd87e5-a181-4946-a8b9-880926a78943.jpg",
+            "height" => 640,
+            "width" => 640
+          },
+          {
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/320x320_pct_0_118.125_540_540_5abd87e5-a181-4946-a8b9-880926a78943.jpg",
+            "height" => 320,
+            "width" => 320
+          },
+          {
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/172x172_pct_0_118.125_540_540_5abd87e5-a181-4946-a8b9-880926a78943.jpg",
+            "height" => 172,
+            "width" => 172
+          },
+          {
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/84x84_pct_0_118.125_540_540_5abd87e5-a181-4946-a8b9-880926a78943.jpg",
+            "height" => 84,
+            "width" => 84
+          }
+        ],
+        "extension" => "jpg",
+        "fileName" => "5abd87e5-a181-4946-a8b9-880926a78943.jpg",
+        "main" => false,
+        "ydistance_percent" => 0.75,
+        "yoffset_percent" => 0.1640625,
+        "xoffset_percent" => 0,
+        "id" => "5abd87e5-a181-4946-a8b9-880926a78943",
+        "xdistance_percent" => 1
+      },
+      {
+        "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
+        "processedFiles" => [{
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/640x640_pct_157.570344_0_405_405_5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
+            "height" => 640,
+            "width" => 640
+          },
+          {
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/320x320_pct_157.570344_0_405_405_5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
+            "height" => 320,
+            "width" => 320
+          },
+          {
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/172x172_pct_157.570344_0_405_405_5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
+            "height" => 172,
+            "width" => 172
+          },
+          {
+            "url" => "http://images.gotinder.com/518d666a2a00df0e490000b9/84x84_pct_157.570344_0_405_405_5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
+            "height" => 84,
+            "width" => 84
+          }
+        ],
+        "extension" => "jpg",
+        "fileName" => "5e168698-a034-40c0-b7fb-7c05743f2310.jpg",
+        "main" => false,
+        "ydistance_percent" => 1,
+        "yoffset_percent" => 0,
+        "xoffset_percent" => 0.2188477,
+        "id" => "5e168698-a034-40c0-b7fb-7c05743f2310",
+        "xdistance_percent" => 0.5625
+      }
+    ],
+    "birth_date_info" => "fuzzy birthdate active, not displaying real birth_date"
+  }]
 }
 ```
 
