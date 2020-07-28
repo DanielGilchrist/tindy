@@ -25,13 +25,116 @@ tindy = Tindy::Client.new("YOUR_FACEBOOK_ACCESS_TOKEN")
 tindy.authenticate!
 ```
 
+### Update Location
+Update your location
+```ruby
+tindy.update_location(-27.469770, 153.025131)
+```
+
+### Update Profile
+Update your profile either individually or multiple at once
+```ruby
+# update multiple (gender: <0|1> or <:male|:female>, age_filter_min: <number>, age_filter_max: <number>, distance_filter: <number>
+tindy.update_profile(age_filter_min: 20, age_filter_max: 26)
+
+# update gender
+tindy.update_gender(:male)
+tindy.update_gender(:female)
+
+# update minimum age
+tindy.update_min_age(20)
+
+# update maximum age
+tindy.update_max_age(26)
+
+# update distance (km)
+tindy.update_distance(15)
+```
+
+### Like/Pass
+Like or pass a user
+```ruby
+# like user (_id)
+tindy.like("53467235483cb56c475cc1d6")
+
+# pass user (_id)
+tindy.pass("53467235483cb56c475cc1d6")
+```
+##### Example Response
+```json
+{
+  "match": true
+}
+```
+
+### Send Message
+Send a message to one of your matches (_id)
+```ruby
+tindy.send_message("53467235483cb56c475cc1d6", "Hey how are you?")
+```
+##### Example Response
+```json
+{
+  "_id": "53467235483cb56c475cc1d6",
+  "from": "53430689ab3c04c13e006ffb",
+  "to": "533a59ea52046fc077002815",
+  "match_id": "53464b0728ac73976d0a3fbf",
+  "sent_date": "2014-04-10T10:28:05.764Z",
+  "message": "hi!",
+  "created_date": "2014-04-10T10:28:05.764Z"
+}
+```
+
+### Report Users
+Report a user
+```ruby
+# report a user for spam (_id)
+tindy.report_user("53467235483cb56c475cc1d6", :spam)
+
+# report a user for being offensive/inappropriate
+tindy.report_user("53467235483cb56c475cc1d6", :offensive)
+tindy.report_user("53467235483cb56c475cc1d6", :inappropriate)
+```
+
+### Updates
+Get recent updates
+```ruby
+tindy.updates
+```
+##### Example Response
+```json
+{
+  "matches": [
+    {
+      "_id": "53464b0728ac73976d0a3fbf",
+      "messages": [
+        {
+          "_id": "534651198ce6da797248c1a3",
+          "match_id": "53464b0728ac73976d0a3fbf",
+          "to": "53430689ab3c04c13e006ffb",
+          "from": "533a59ea52046fc077002815",
+          "message": "hi  .... how is it going?",
+          "sent_date": "2014-04-10T08:06:49.800Z",
+          "created_date": "2014-04-10T08:06:49.800Z",
+          "timestamp": 1397117209800
+        }
+      ],
+      "last_activity_date": "2014-04-10T10:17:54.379Z"
+    }
+  ],
+  "blocks": [],
+  "lists": [],
+  "deleted_lists": [],
+  "last_activity_date": "2014-04-10T10:17:54.379Z"
+}
+```
+
 ### Recommendations
 Returns a list of recommended Tinder users
-
 ```ruby
 tindy.recommendations
 ```
-##### Example Response:
+##### Example Response
 ```json
 {
   "status": 200,
@@ -183,93 +286,6 @@ tindy.recommendations
     }
   ]
 }
-```
-
-### Like/Pass
-Like or pass a user
-```ruby
-# like user (_id)
-tindy.like(12345)
-
-# pass user (_id)
-tindy.pass(12345)
-```
-
-### Updates
-Get recent updates
-```ruby
-tindy.updates
-```
-##### Example Response:
-```json
-{
-  "matches": [
-    {
-      "_id": "53464b0728ac73976d0a3fbf",
-      "messages": [
-        {
-          "_id": "534651198ce6da797248c1a3",
-          "match_id": "53464b0728ac73976d0a3fbf",
-          "to": "53430689ab3c04c13e006ffb",
-          "from": "533a59ea52046fc077002815",
-          "message": "hi  .... how is it going?",
-          "sent_date": "2014-04-10T08:06:49.800Z",
-          "created_date": "2014-04-10T08:06:49.800Z",
-          "timestamp": 1397117209800
-        }
-      ],
-      "last_activity_date": "2014-04-10T10:17:54.379Z"
-    }
-  ],
-  "blocks": [],
-  "lists": [],
-  "deleted_lists": [],
-  "last_activity_date": "2014-04-10T10:17:54.379Z"
-}
-```
-
-### Report Users
-Report a user
-```ruby
-# report a user for spam (_id)
-tindy.report_user(12345, :spam)
-
-# report a user for being offensive/inappropriate
-tindy.report_user(12345, :offensive)
-tindy.report_user(12345, :inappropriate)
-```
-
-### Send Message
-(I haven't tested if this works)  
-Send a message to one of your matches
-```ruby
-tindy.send_message(12345, "Hey how are you?")
-```
-
-### Update Location
-Update your location
-```ruby
-tindy.update_location(-27.469770, 153.025131)
-```
-
-### Update Profile
-Update your profile either individually or multiple at once
-```ruby
-# update multiple (gender: <0|1> or <:male|:female>, age_filter_min: <number>, age_filter_max: <number>, distance_filter: <number>
-tindy.update_profile(age_filter_min: 20, age_filter_max: 26)
-
-# update gender
-tindy.update_gender(:male)
-tindy.update_gender(:female)
-
-# update minimum age
-tindy.update_min_age(20)
-
-# update maximum age
-tindy.update_max_age(26)
-
-# update distance (km)
-tindy.update_distance(15)
 ```
 
 ## Future Plans
