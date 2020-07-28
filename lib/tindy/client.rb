@@ -2,8 +2,9 @@ module Tindy
   class Client
     include HTTParty
 
-    BASE_ENDPOINT = 'https://api.gotinder.com'.freeze
-    TINDER_APP_ID = '464891386855067'.freeze
+    base_uri "https://api.gotinder.com"
+
+    TINDER_APP_ID = "464891386855067".freeze
 
     REPORT_OPTIONS = {
       spam: 1,
@@ -17,7 +18,23 @@ module Tindy
     }.freeze
 
     def initialize(fb_token)
-      @token = authenticate(fb_token)
+      @fb_token = fb_token
+      @tinder_token = nil
+    end
+
+    def authenticate!
+      return if authenticated?
+
+      auth_obj = {
+        facebook_token: @fb_token,
+        facebook_id: TINDER_APP_ID
+      }.to_json
+
+      res = self.class.post("/auth", headers: headers, body: auth_obj)
+
+      raise "Failed to authenticate. Response body: #{res.body}" if res.code != 200
+
+      @tinder_token = JSON.parse(res.body)["token"]
     end
 
     def like(id)
@@ -29,31 +46,29 @@ module Tindy
     end
 
     def updates
-      post('/updates', { last_activity_date: '' }.to_json)
+      post("/updates", { last_activity_date: "" })
     end
 
     def recommendations
-      post('/recs')
+      post("/recs")
     end
 
     def report_user(id, cause)
-      raise 'Incorrect cause provided (:spam, :offensive/:inappropriate)' unless REPORT_OPTIONS.key?(cause)
+      raise "Incorrect cause provided (:spam, :offensive/:inappropriate)" unless REPORT_OPTIONS.key?(cause)
 
-      post("/report/#{id}", { cause: REPORT_OPTIONS.dig(cause) }.to_json)
+      post("/report/#{id}", { cause: REPORT_OPTIONS[cause] })
     end
 
     def send_message(id, message)
-      post("/matches/#{id}", { message: message }.to_json)
+      post("/matches/#{id}", { message: message })
     end
 
     def update_location(latitude, longitude)
-      post('/user/ping', { lat: latitude, lon: longitude }.to_json)
+      post("/user/ping", { lat: latitude, lon: longitude })
     end
 
     def update_gender(gender)
-      raise 'Incorrect gender provided (:male or :female)' unless GENDER_OPTIONS.key?(gender)
-
-      update_profile(gender: GENDER_OPTIONS.dig(gender))
+      update_profile(gender: gender)
     end
 
     def update_min_age(age)
@@ -69,37 +84,39 @@ module Tindy
     end
 
     def update_profile(options = {})
-      post('/profile', options.to_json)
+      gender_option = options[:gender]
+      validate_gender!(gender_option)
+
+      options.merge!(gender: GENDER_OPTIONS[gender_option]) if gender_option.is_a?(Symbol)
+
+      post("/profile", options)
     end
 
     private
-    def authenticate(fb_token)
-      auth_obj = {
-        facebook_token: fb_token,
-        facebook_id: TINDER_APP_ID
-      }.to_json
 
-      res = self.class.post(BASE_ENDPOINT + '/auth', headers: headers, body: auth_obj)
-
-      raise "Failed to authenticate. Response body: #{res.body}" if res.code != 200
-
-      JSON.parse(res.body).dig('token')
+    def authenticated?
+      !!@tinder_token
     end
 
-    def post(path, body = '')
-      res = with_retries { self.class.post(BASE_ENDPOINT + path, headers: headers, body: body) }
-      res.parsed_response
+    def validate_gender!(gender)
+      return if gender.nil?
+      return if (GENDER_OPTIONS.keys + GENDER_OPTIONS.values).include?(gender)
+
+      raise "Invalid argument passed for gender (:male, :female, 0, 1) '#{gender}'"
+    end
+
+    def post(path, body)
+      raise "Not authenticated!" unless authenticated?
+
+      self.class.post(path, headers: headers, body: body.to_json).parsed_response
     end
 
     def headers
-      headers = {}
-
-      headers['X-Auth-Token'] = @token if defined?(@token)
-      headers['content-type'] = 'application/json'
-      headers['User-agent'] = 'Tinder/4.0.9 (iPhone; iOS 8.1.1; Scale/2.00)'
-      headers['platform'] = 'ios'
-
-      headers
+      {
+        "content-type" => "application/json",
+        "User-agent" => "Tinder/4.0.9 (iPhone; iOS 8.1.1; Scale/2.00)",
+        "platform" => "ios",
+      }.tap { |h| h["X-Auth-Token"] = @tinder_token if authenticated? }
     end
   end
 end
